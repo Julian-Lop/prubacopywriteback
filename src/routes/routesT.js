@@ -1,11 +1,8 @@
 const {Router} = require('express')
+const textcontroller = require('../controllers/textcontroller')
 
 const router = Router()
 
-router.get('/iecho', (req,res)=>{
-    let txt = req.query.text
-    let txtinvertido = txt.split("").reverse().join("")
-    res.send(txtinvertido)
-})
+router.get('/iecho', textcontroller.text)
 
 module.exports = router
