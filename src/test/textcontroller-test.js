@@ -49,4 +49,26 @@ describe('GET prueba de controller de texto', () => {
 
         expect(response.body.error).to.equal('no text')
     })
+
+    it("debería devolver 'true' cuando es un palindromo 'eye'", async () => {
+        let response = 
+        await server
+            .get('/iecho?text=eye')
+            .then(response => {
+             return response
+            })
+
+        expect(response.body.palindrome).to.equal(true)
+    })
+
+    it("debería devolver 'false' cuando no es un palindromo 'test'", async () => {
+        let response = 
+        await server
+            .get('/iecho?text=test')
+            .then(response => {
+             return response
+            })
+
+        expect(response.body.palindrome).to.equal(false)
+    })
 })
